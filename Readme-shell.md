@@ -139,7 +139,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 	![A portion of the Azure Portal to confirm that the deployment is in progress.](media/microsoft-template-2.png)
 
-### Task 4: Run the Cloud Shell to provision the demo resources
+### Task 3: Run the Cloud Shell to provision the demo resources
 
 1. **Open** the Azure Portal. In the Resource group section, **open** the Azure Cloud Shell by selecting its icon from the top toolbar.
 
