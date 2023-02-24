@@ -39,10 +39,11 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 - [Requirements](#requirements)
 - [Before Starting](#before-starting)
   - [Task 1: Create a resource group in Azure](#task-1-create-a-resource-group-in-azure)
-  - [Task 2: Deploy the ARM Template](#task-2-deploy-the-arm-template)
-  - [Task 3: Run the Cloud Shell to provision the demo resources](#task-3-run-the-cloud-shell-to-provision-the-demo-resources)
-  - [Task 4: Pause or Resume script](#task-4-pause-or-resume-script)
-  - [Task 5: Clean up resources](#task-5-clean-up-resources)
+  - [Task 2: Power BI Workspace creation](#task-2-power-bi-workspace-creation)
+  - [Task 3: Deploy the ARM Template](#task-3-deploy-the-arm-template)
+  - [Task 4: Run the Cloud Shell to provision the demo resources](#task-4-run-the-cloud-shell-to-provision-the-demo-resources)
+  - [Task 5: Pause or Resume script](#task-5-pause-or-resume-script)
+  - [Task 6: Clean up resources](#task-6-clean-up-resources)
 
 <!-- /TOC -->
 
@@ -101,7 +102,33 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 	![Create Resource Group with the final validation passed.](media/resource-group-4.png)
 
-### Task 2: Deploy the ARM Template
+### Task 2: Power BI Workspace creation
+
+1. **Open** Power BI in a new tab using the following link:  [https://app.powerbi.com/](https://app.powerbi.com/)
+
+2. **Sign in**, to Power BI using your Power BI Pro account.
+
+	![Sign in to Power BI.](media/power-bi.png)
+
+	> **Note:** Use the same credentials for Power BI which you will be using for the Azure account.
+
+3. In Power BI service **Click** on 'Workspaces'.
+
+4. Then **click** on the 'Create a workspace' tab.
+
+	![Create Power BI Workspace.](media/power-bi-2.png)
+
+	> **Note:** Please create a Workspace by the name "DDiB-MIDP".
+
+5. **Copy** the Workspace GUID or ID. You can get this by browsing to [https://app.powerbi.com/](https://app.powerbi.com/), selecting the workspace, and then copying the GUID 	from the address URL.
+
+6. **Paste** the GUID in a notepad for future reference.
+
+	![Give the name and description for the new workspace.](media/power-bi-3.png)
+
+	> **Note:** This workspace ID will be used during the ARM template deployment.
+
+### Task 3: Deploy the ARM Template
 
 1. **Open** this link in a new tab of the same browser that you are currently in: 
 	
@@ -117,29 +144,25 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 6. **Enter** the Power BI workspace ID copied in step 6 of [Task 2](#task-2-power-bi-workspace-creation).
 
-7. **Enter** the power BI streaming dataset url for **CCO Realtime** you copied in step 13 of [Task 2](#task-2-power-bi-workspace-creation).
-
-8. **Enter** the power BI streaming dataset url for **Store Telemetry Realtime** you copied in step 12 of [Task 2](#task-2-power-bi-workspace-creation).
-
-9. **Click** ‘Review + Create’ button.
+7. **Click** ‘Review + Create’ button.
 
 	![The Custom deployment form is displayed with example data populated.](media/powerbi-deployment-1.png)
 
-10. **Click** the **Create** button once the template has been validated.
+8. **Click** the **Create** button once the template has been validated.
 
 	![Creating the template after validation.](media/powerbi-deployment-3.png)
 	
 	> **NOTE:** The provisioning of your deployment resources will take approximately 10 minutes.
 	
-11. **Stay** on the same page and wait for the deployment to complete.
+9. **Stay** on the same page and wait for the deployment to complete.
     
 	![A portion of the Azure Portal to confirm that the deployment is in progress.](media/microsoft-template.png)
     
-12. **Select** the **Go to resource group** button once your deployment is complete.
+10. **Select** the **Go to resource group** button once your deployment is complete.
 
 	![A portion of the Azure Portal to confirm that the deployment is in progress.](media/microsoft-template-2.png)
 
-### Task 3: Run the Cloud Shell to provision the demo resources
+### Task 4: Run the Cloud Shell to provision the demo resources
 
 1. **Open** the Azure Portal. In the Resource group section, **open** the Azure Cloud Shell by selecting its icon from the top toolbar.
 
@@ -160,7 +183,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 4. In the Azure Cloud Shell window, ensure the PowerShell environment is selected and **enter** the following command to clone the repository files.
 
 ```
-git clone -b midp-with-cosmos --depth 1 --single-branch https://github.com/microsoft/Azure-Analytics-and-AI-Engagement.git midpCosmos
+git clone -b midp-act2-3 --depth 1 --single-branch https://github.com/microsoft/Azure-Analytics-and-AI-Engagement.git midp
 ```
 
 ![Git Clone Command to Pull Down the demo Repository.](media/cloud-shell-4.png)
@@ -172,12 +195,12 @@ git clone -b midp-with-cosmos --depth 1 --single-branch https://github.com/micro
 5. **Execute** the midpComosSetup.ps1 script by executing the following command:
 
 ```
-cd ./midpCosmos/midpCosmos
+cd ./midp/act-2/
 ```
 
 6. Then **run** the PowerShell: 
 ```
-./midpComosSetup.ps1
+./midpSetup.ps1
 ```
     
 ![Commands to run the PowerShell Script.](media/cloud-shell-5.png)
@@ -241,7 +264,7 @@ cd ./midpCosmos/midpCosmos
 
 	![Enter Resource Group name.](media/cloud-shell-17.1.png)
 	
-### Task 4: Pause or Resume script
+### Task 5: Pause or Resume script
 
 > **Note:** Please perform these steps after your demo is done and you do not need the environment anymore. Also ensure you Resume the environment before demo if you paused it once. 
  
@@ -290,7 +313,7 @@ cd ./midpCosmos/midpCosmos
 
 	![Enter your choice.](media/authentication-4.png)
 
-### Task 5: Clean up resources
+### Task 6: Clean up resources
 
 > **Note: Perform these steps after your demo is done and you do not need the resources anymore**
 
